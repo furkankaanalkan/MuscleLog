@@ -8,16 +8,16 @@
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecMain"
+        android:id="@+id/recMain"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/TitleMain" />
+        app:layout_constraintTop_toBottomOf="@id/titleMain" />
 
     <TextView
-        android:id="@+id/TitleMain"
+        android:id="@+id/titleMain"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/actMainTitle"
