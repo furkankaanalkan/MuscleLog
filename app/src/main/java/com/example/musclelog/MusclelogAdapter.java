@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.axemple.musclelog.databinding.RecyclerRowBinding;
+import com.example.musclelog.databinding.ActivityExplainBinding;
 
 import java.util.ArrayList;
 
@@ -23,20 +23,20 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
     @NonNull
     @Override
     public MusclelogHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        RecyclerRowBinding recyclerRowBinding = RecyclerRowBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
-        return new MusclelogHolder(recyclerRowBinding);
+        ActivityExplainBinding  activityExplainBinding = ActivityExplainBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
+        return new MusclelogHolder(activityExplainBinding);
     }
 
     @Override
     public void onBindViewHolder(MusclelogAdapter.MusclelogHolder holder, int position) {
-        holder.binding.recyclerViewTextView.setText(exerciseList.get(position).name);
+        holder.binding.explainTitle.setText(exerciseList.get(position).name);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(holder.itemView.getContext(),DetailActivity.class);
+                Intent intent = new Intent(holder.itemView.getContext(),ExplainActivity.class);
                 Singleton singleton = Singleton.getInstance();
-                singleton.setChosenLandmark(exerciseList.get(position));
+                singleton.setSingexer(exerciseList.get(position));
                 //intent.putExtra("landmark",landmarkList.get(position));
                 holder.itemView.getContext().startActivity(intent);
             }
@@ -50,9 +50,9 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
 
     public class MusclelogHolder extends RecyclerView.ViewHolder {
 
-        private RecyclerRowBinding binding;
+        private ActivityExplainBinding binding;
 
-        public MusclelogHolder(RecyclerRowBinding binding) {
+        public MusclelogHolder(ActivityExplainBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

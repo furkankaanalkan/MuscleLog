@@ -1,14 +1,23 @@
 package com.example.musclelog;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+
+import com.example.musclelog.databinding.ActivityExerciseBinding;
+import com.example.musclelog.databinding.ActivityMainBinding;
+
+import java.util.ArrayList;
 
 public class ExerciseActivity extends AppCompatActivity {
+
+    private ActivityExerciseBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +28,7 @@ public class ExerciseActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        setContentView(R.layout.activity_exercise);
-        ViewCompat.setOnApplyWindowInsetsListener(binding.exercise, (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.recyclerViewExercises, (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -41,9 +49,9 @@ public class ExerciseActivity extends AppCompatActivity {
         pull_day.add(lat_pull_down);
         pull_day.add(face_pull);
 
-        binding.recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        MusclelogAdapter musclelogAdapter = new MusclelogAdapter(exerciseList);
-        binding.recyclerView.setAdapter(musclelogAdapter);
+        binding.recyclerViewExercises.setLayoutManager(new GridLayoutManager(this, 2));
+        MusclelogAdapter musclelogAdapter = new MusclelogAdapter(pull_day);
+        binding.recyclerViewExercises.setAdapter(musclelogAdapter);
 
 
     }

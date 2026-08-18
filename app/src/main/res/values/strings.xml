@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">MuscleLog</string>
     <string name="actMainTitle">Welcome To MuscleLog</string>
+    <string name="explainText">aciklama</string>
+    <string name="expalinTitle">baslik</string>
 </resources>
