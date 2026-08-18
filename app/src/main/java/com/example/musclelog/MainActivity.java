@@ -8,6 +8,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import android.view.View;
 import androidx.core.view.WindowInsetsCompat;
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
   
@@ -28,12 +30,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-
-        //binding.titleMain.setText(getString(R.string.actMainTitle));
-
-
         
-
+        
     }
   
 }
