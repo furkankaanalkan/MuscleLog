@@ -34,11 +34,16 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(holder.itemView.getContext(),ExplainActivity.class);
-                Singleton singleton = Singleton.getInstance();
-                singleton.setSingexer(exerciseList.get(position));
-                //intent.putExtra("landmark",landmarkList.get(position));
-                holder.itemView.getContext().startActivity(intent);
+                int adapterPosition = holder.getAdapterPosition();
+
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+                    Intent intent = new Intent(holder.itemView.getContext(), ExplainActivity.class);
+                    Singleton singleton = Singleton.getInstance();
+
+                    singleton.setSingexer(exerciseList.get(adapterPosition));
+
+                    holder.itemView.getContext().startActivity(intent);
+                }
             }
         });
     }
