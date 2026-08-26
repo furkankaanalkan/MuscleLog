@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musclelog.databinding.ActivityExplainBinding;
+import com.example.musclelog.databinding.RecyclerRowBinding;
 
 import java.util.ArrayList;
 
@@ -23,8 +24,8 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
     @NonNull
     @Override
     public MusclelogHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ActivityExplainBinding  activityExplainBinding = ActivityExplainBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
-        return new MusclelogHolder(activityExplainBinding);
+        RecyclerRowBinding  recyclerRowBinding = RecyclerRowBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
+        return new MusclelogHolder(recyclerRowBinding);
     }
 
     @Override
@@ -55,9 +56,9 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
 
     public class MusclelogHolder extends RecyclerView.ViewHolder {
 
-        private ActivityExplainBinding binding;
+        RecyclerRowBinding binding;
 
-        public MusclelogHolder(ActivityExplainBinding binding) {
+        public MusclelogHolder(RecyclerRowBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
