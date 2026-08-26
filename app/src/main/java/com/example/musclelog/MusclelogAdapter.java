@@ -8,14 +8,16 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.musclelog.databinding.ActivityExplainBinding;
 import com.example.musclelog.databinding.RecyclerRowBinding;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.MusclelogHolder> {
 
     ArrayList<Exercises> exerciseList;
+
+    ArrayList<String> typeTitles;
 
     public MusclelogAdapter(ArrayList<Exercises> exerciseList) {
         this.exerciseList = exerciseList;
@@ -30,7 +32,8 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
 
     @Override
     public void onBindViewHolder(MusclelogAdapter.MusclelogHolder holder, int position) {
-        holder.binding.explainTitle.setText(exerciseList.get(position).name);
+        String name = exerciseList.get(position).name;
+        holder.binding.explainTitle.setText(name);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,9 +42,12 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
 
                 if (adapterPosition != RecyclerView.NO_POSITION) {
                     Intent intent = new Intent(holder.itemView.getContext(), ExplainActivity.class);
-                    Singleton singleton = Singleton.getInstance();
 
-                    singleton.setSingexer(exerciseList.get(adapterPosition));
+                    Exercises onClickExercise = exerciseList.get(adapterPosition);
+
+                    Singleton singleton = Singleton.getInstance();
+                    singleton.setSelectedExercise(onClickExercise);
+                    intent.putExtra("selectedWorkout",onClickExercise);
 
                     holder.itemView.getContext().startActivity(intent);
                 }
@@ -51,7 +57,7 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
 
     @Override
     public int getItemCount() {
-        return exerciseList.size();
+        return typeTitles.size();
     }
 
     public class MusclelogHolder extends RecyclerView.ViewHolder {

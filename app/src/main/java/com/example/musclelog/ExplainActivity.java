@@ -11,6 +11,10 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.musclelog.databinding.ActivityExplainBinding;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class ExplainActivity extends AppCompatActivity {
 
     private ActivityExplainBinding binding;
@@ -31,10 +35,11 @@ public class ExplainActivity extends AppCompatActivity {
         });
 
         Singleton singleton = Singleton.getInstance();
-        Exercises singexer = singleton.getSingexer();
 
-        binding.explainTitle.setText(singexer.name);
-        binding.explainText.setText(singexer.description);
-        binding.explainImage.setImageResource(singexer.images);
+        Exercises exerciseType = Singleton.getInstance().getSelectedExercise();
+
+        binding.explainTitle.setText(exerciseType.description);
+        binding.explainText.setText(exerciseType.description);
+        binding.explainImage.setImageResource(exerciseType.images);
     }
 }

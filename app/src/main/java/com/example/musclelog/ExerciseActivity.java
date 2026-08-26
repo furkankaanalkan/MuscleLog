@@ -15,6 +15,7 @@ import com.example.musclelog.databinding.ActivityExerciseBinding;
 import com.example.musclelog.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ExerciseActivity extends AppCompatActivity {
 
@@ -35,23 +36,14 @@ public class ExerciseActivity extends AppCompatActivity {
             return insets;
         });
 
-        Exercises deadlift = new Exercises("Deadlift", "Back", R.drawable.deadlift);
-        Exercises dumbbell_curl = new Exercises("Dumbbell Curl", "Biceps", R.drawable.dumbbellcurl);
-        Exercises chest_supported_dumbbell_row = new Exercises("Chest Supported Dumbbell Row", "Back", R.drawable.chestsupporteddumbbellrow);
-        Exercises Hummer_Curl = new Exercises("Hummer Curl", "Biceps", R.drawable.hummercurl);
-        Exercises lat_pull_down = new Exercises("Lat Pull Down", "Back", R.drawable.latpulldown);
-        Exercises face_pull = new Exercises("Face Pull", "Back", R.drawable.facepull);
 
-        ArrayList<Exercises> pull_day = new ArrayList<>();
-        pull_day.add(deadlift);
-        pull_day.add(dumbbell_curl);
-        pull_day.add(chest_supported_dumbbell_row);
-        pull_day.add(Hummer_Curl);
-        pull_day.add(lat_pull_down);
-        pull_day.add(face_pull);
+        String workout = getIntent().getStringExtra("selectedWorkout");
+        HashMap<String, ArrayList<Exercises>> allLists = Singleton.getInstance().getAllLists();
+        ArrayList<Exercises> selectedWorkout = allLists.get(workout);
+
 
         binding.recyclerViewExercises.setLayoutManager(new LinearLayoutManager(this));
-        MusclelogAdapter musclelogAdapter = new MusclelogAdapter(pull_day);
+        MusclelogAdapter musclelogAdapter = new MusclelogAdapter(selectedWorkout);
         binding.recyclerViewExercises.setAdapter(musclelogAdapter);
 
 
