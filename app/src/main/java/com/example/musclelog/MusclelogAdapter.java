@@ -11,13 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.musclelog.databinding.RecyclerRowBinding;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.MusclelogHolder> {
 
+    // Sadece egzersiz listesini tutmamız yeterli
     ArrayList<Exercises> exerciseList;
-
-    ArrayList<String> typeTitles;
 
     public MusclelogAdapter(ArrayList<Exercises> exerciseList) {
         this.exerciseList = exerciseList;
@@ -25,13 +23,14 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
 
     @NonNull
     @Override
-    public MusclelogHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        RecyclerRowBinding  recyclerRowBinding = RecyclerRowBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
+    public MusclelogHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        RecyclerRowBinding recyclerRowBinding = RecyclerRowBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new MusclelogHolder(recyclerRowBinding);
     }
 
     @Override
-    public void onBindViewHolder(MusclelogAdapter.MusclelogHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MusclelogAdapter.MusclelogHolder holder, int position) {
+
         String name = exerciseList.get(position).name;
         holder.binding.explainTitle.setText(name);
 
@@ -43,11 +42,12 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
                 if (adapterPosition != RecyclerView.NO_POSITION) {
                     Intent intent = new Intent(holder.itemView.getContext(), ExplainActivity.class);
 
+                    // Tıklanan egzersizi alıyoruz
                     Exercises onClickExercise = exerciseList.get(adapterPosition);
 
+                    // Singleton'a kaydediyoruz
                     Singleton singleton = Singleton.getInstance();
                     singleton.setSelectedExercise(onClickExercise);
-                    intent.putExtra("selectedWorkout",onClickExercise);
 
                     holder.itemView.getContext().startActivity(intent);
                 }
@@ -57,7 +57,11 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
 
     @Override
     public int getItemCount() {
-        return typeTitles.size();
+        // Hata buradaydı: Listenin boş olma ihtimaline karşı koruma ekleyip asıl listenin boyutunu döndürüyoruz
+        if (exerciseList == null) {
+            return 0;
+        }
+        return exerciseList.size();
     }
 
     public class MusclelogHolder extends RecyclerView.ViewHolder {

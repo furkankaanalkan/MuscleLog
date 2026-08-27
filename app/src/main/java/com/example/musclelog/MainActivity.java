@@ -48,5 +48,16 @@ public class MainActivity extends AppCompatActivity {
         HashMap<String, ArrayList<Exercises>> types = new HashMap<>();
         types.put("Pull Day",pull_day);
 
+        Singleton singleton = Singleton.getInstance();
+        singleton.setAllLists(types);
+
     }
+
+    public void button1(View view){
+        Intent intent = new Intent(MainActivity.this, ExerciseActivity.class);
+        intent.putExtra("selectedWorkout", "Pull Day");
+        startActivity(intent);
+
+    }
+
 }

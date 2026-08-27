@@ -34,8 +34,6 @@ public class ExplainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Singleton singleton = Singleton.getInstance();
-
         Exercises exerciseType = Singleton.getInstance().getSelectedExercise();
 
         binding.explainTitle.setText(exerciseType.description);
