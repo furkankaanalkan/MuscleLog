@@ -2,30 +2,54 @@ package com.example.musclelog;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Singleton {
 
-    private HashMap<String, ArrayList<Exercises>> allListsHashMap = new HashMap<>();
-    private Exercises selectedExercise;
+    private ArrayList<ArrayList<Exercises>> allLists = new ArrayList<>();
+    private ArrayList<String> selectedExerciseName;
+    private ArrayList<Exercises> exerciseList;
+
+    private Exercises selectedexercise;
     private static Singleton singleton;
+
+    public void setAllData(ArrayList<String> selectedExercise , ArrayList<ArrayList<Exercises>> allListsHashMap){
+        this.allLists = allListsHashMap;
+        this.selectedExerciseName = selectedExercise;
+    }
 
     private Singleton() {
 
     }
 
-    public HashMap<String, ArrayList<Exercises>> getAllListsHashMap() {
-        return allListsHashMap;
+    public ArrayList<ArrayList<Exercises>> getAllLists() {
+        return allLists;
     }
 
-    public void setAllListsHashMap(HashMap<String, ArrayList<Exercises>> allListsHashMap) {
-        this.allListsHashMap = allListsHashMap;
+    public void setAllLists(ArrayList<ArrayList<Exercises>> allLists) {
+        this.allLists = allLists;
     }
 
-    public Exercises getSelectedExercise() {
-        return selectedExercise; }
-    public void setSelectedExercise(Exercises selectedExercise) {
-        this.selectedExercise = selectedExercise; }
+
+    public ArrayList<String> getSelectedExerciseName() {
+        return selectedExerciseName; }
+    public void setSelectedExerciseName(ArrayList<String> selectedExerciseName) {
+        this.selectedExerciseName = selectedExerciseName; }
+
+
+    public ArrayList<Exercises> getExerciseList(){
+        return  exerciseList;
+    }
+    public void setExerciseList(ArrayList<Exercises> exerciseList){
+        this.exerciseList = exerciseList;
+    }
+
+
+    public Exercises getSelectedexercise(){
+        return  selectedexercise;
+    }
+    public void setSelectedexercise(Exercises selectedexercise){
+        this.selectedexercise = selectedexercise;
+    }
 
 
     public static Singleton getInstance() {

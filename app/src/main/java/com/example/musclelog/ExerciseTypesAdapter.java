@@ -15,11 +15,13 @@ import java.util.ArrayList;
 
 public class ExerciseTypesAdapter extends RecyclerView.Adapter<ExerciseTypesAdapter.ExerciseTypesHolder> {
 
-    ArrayList<Exercises> typeList;
+    ArrayList<ArrayList<Exercises>> typeList;
+    ArrayList<String> typeStringName;
 
-    public ExerciseTypesAdapter (ArrayList<Exercises> typeList) {
+
+    public ExerciseTypesAdapter (ArrayList<ArrayList<Exercises>> typeList , ArrayList<String> typeStringName) {
         this.typeList = typeList;
-
+        this.typeStringName = typeStringName;
     }
 
 
@@ -33,7 +35,7 @@ public class ExerciseTypesAdapter extends RecyclerView.Adapter<ExerciseTypesAdap
     @Override
     public void onBindViewHolder(ExerciseTypesAdapter.ExerciseTypesHolder holder, int position) {
 
-        String name = typeList.get(position).name;
+        String name = typeStringName.get(position);
         holder.binding.explainTitle.setText(name);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -43,13 +45,11 @@ public class ExerciseTypesAdapter extends RecyclerView.Adapter<ExerciseTypesAdap
                 int adapterPosition = holder.getAdapterPosition();
 
                 if (adapterPosition != RecyclerView.NO_POSITION) {
-                    Intent intent = new Intent(holder.itemView.getContext(), ExplainActivity.class);
-
-                    Exercises onClickExercise = typeList.get(adapterPosition);
+                    Intent intent = new Intent(holder.itemView.getContext(), ExerciseActivity.class);
+                    ArrayList<Exercises> onClickExercise = typeList.get(adapterPosition);
 
                     Singleton singleton = Singleton.getInstance();
-                    singleton.setSelectedExercise(onClickExercise);
-
+                    singleton.setExerciseList(onClickExercise);
 
                     holder.itemView.getContext().startActivity(intent);
                 }

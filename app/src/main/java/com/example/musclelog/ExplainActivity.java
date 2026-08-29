@@ -11,10 +11,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.musclelog.databinding.ActivityExplainBinding;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 public class ExplainActivity extends AppCompatActivity {
 
     private ActivityExplainBinding binding;
@@ -34,7 +30,7 @@ public class ExplainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Exercises exerciseType = Singleton.getInstance().getSelectedExercise();
+        Exercises exerciseType = Singleton.getInstance().getSelectedexercise();
 
         binding.explainTitle.setText(exerciseType.description);
         binding.explainText.setText(exerciseType.description);

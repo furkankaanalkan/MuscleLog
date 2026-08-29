@@ -61,21 +61,26 @@ public class MainActivity extends AppCompatActivity {
         types.put("Pull Day",pull_day);
         types.put("Push Day",push_day);
 
-        Singleton singleton = Singleton.getInstance();
-        singleton.setAllListsHashMap(types);
-
         ArrayList<String> typesKeys = new ArrayList<>();
+        ArrayList<ArrayList<Exercises>> typesValues = new ArrayList<>();
 
         //Lambda ile boyle yazılıyor
         //types.keySet().forEach(key -> typesKeys.add(key));
-
-        for (String key : types.keySet()){
-            typesKeys.add(key);
+        for (String keys : types.keySet()){
+            typesKeys.add(keys);
         }
+
+        for (ArrayList<Exercises> values : types.values()){
+            typesValues.add(values);
+        }
+
+        Singleton singleton = Singleton.getInstance();
+        singleton.setAllData(typesKeys , typesValues);
+
 
 
         binding.recyclerViewMain.setLayoutManager(new LinearLayoutManager(this));
-        ExerciseTypesAdapter exerciseTypesAdapter = new ExerciseTypesAdapter(typesKeys);
+        ExerciseTypesAdapter exerciseTypesAdapter = new ExerciseTypesAdapter(typesValues , typesKeys);
         binding.recyclerViewMain.setAdapter(exerciseTypesAdapter);
 
     }

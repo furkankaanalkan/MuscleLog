@@ -35,16 +35,13 @@ public class ExerciseActivity extends AppCompatActivity {
         });
 
 
-        String workout = getIntent().getStringExtra("selectedWorkout");
-        HashMap<String, ArrayList<Exercises>> allLists = Singleton.getInstance().getAllListsHashMap();
-        ArrayList<Exercises> selectedWorkout = allLists.get(workout);
 
-        //Singleton singleton = Singleton.getInstance();
-        //singleton.getAllLists(k);
+        Singleton singleton = Singleton.getInstance();
+        ArrayList<Exercises> selectedworkout = singleton.getExerciseList();
 
 
         binding.recyclerViewExercises.setLayoutManager(new LinearLayoutManager(this));
-        MusclelogAdapter musclelogAdapter = new MusclelogAdapter(selectedWorkout);
+        MusclelogAdapter musclelogAdapter = new MusclelogAdapter(selectedworkout);
         binding.recyclerViewExercises.setAdapter(musclelogAdapter);
 
 

@@ -11,15 +11,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.musclelog.databinding.RecyclerRowBinding;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.MusclelogHolder> {
 
-    // Sadece egzersiz listesini tutmamız yeterli
-    ArrayList<Exercises> exerciseList;
+    ArrayList<Exercises> selectedWorkout;
 
-    public MusclelogAdapter(ArrayList<Exercises> exerciseList) {
-        this.exerciseList = exerciseList;
+
+    public MusclelogAdapter(ArrayList<Exercises> selectedWorkout) {
+        this.selectedWorkout = selectedWorkout;
     }
+
+
 
     @NonNull
     @Override
@@ -31,7 +35,7 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
     @Override
     public void onBindViewHolder(@NonNull MusclelogAdapter.MusclelogHolder holder, int position) {
 
-        String name = exerciseList.get(position).name;
+        String name = selectedWorkout.get(position).name;
         holder.binding.explainTitle.setText(name);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -42,12 +46,10 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
                 if (adapterPosition != RecyclerView.NO_POSITION) {
                     Intent intent = new Intent(holder.itemView.getContext(), ExplainActivity.class);
 
-                    // Tıklanan egzersizi alıyoruz
-                    Exercises onClickExercise = exerciseList.get(adapterPosition);
+                    Exercises onClickExercise = selectedWorkout.get(adapterPosition);
 
-                    // Singleton'a kaydediyoruz
                     Singleton singleton = Singleton.getInstance();
-                    singleton.setSelectedExercise(onClickExercise);
+                    singleton.setSelectedexercise(onClickExercise);
 
                     holder.itemView.getContext().startActivity(intent);
                 }
@@ -58,10 +60,10 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
     @Override
     public int getItemCount() {
         // Hata buradaydı: Listenin boş olma ihtimaline karşı koruma ekleyip asıl listenin boyutunu döndürüyoruz
-        if (exerciseList == null) {
+        if (selectedWorkout == null) {
             return 0;
         }
-        return exerciseList.size();
+        return selectedWorkout.size();
     }
 
     public class MusclelogHolder extends RecyclerView.ViewHolder {
