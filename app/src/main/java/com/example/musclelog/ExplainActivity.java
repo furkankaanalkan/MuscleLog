@@ -28,7 +28,7 @@ public class ExplainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.recTextView), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.recTextView, (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;

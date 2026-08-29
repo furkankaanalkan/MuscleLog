@@ -37,8 +37,22 @@ public class ExerciseTypesAdapter extends RecyclerView.Adapter<ExerciseTypesAdap
         holder.binding.explainTitle.setText(name);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
+            //@Override
+
             public void onClick(View v) {
+                int adapterPosition = holder.getAdapterPosition();
+
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+                    Intent intent = new Intent(holder.itemView.getContext(), ExplainActivity.class);
+
+                    Exercises onClickExercise = typeList.get(adapterPosition);
+
+                    Singleton singleton = Singleton.getInstance();
+                    singleton.setSelectedExercise(onClickExercise);
+
+
+                    holder.itemView.getContext().startActivity(intent);
+                }
 
             }
         });

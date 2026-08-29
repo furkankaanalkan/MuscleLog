@@ -8,11 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.musclelog.databinding.ActivityExerciseBinding;
-import com.example.musclelog.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,7 +36,7 @@ public class ExerciseActivity extends AppCompatActivity {
 
 
         String workout = getIntent().getStringExtra("selectedWorkout");
-        HashMap<String, ArrayList<Exercises>> allLists = Singleton.getInstance().getAllLists();
+        HashMap<String, ArrayList<Exercises>> allLists = Singleton.getInstance().getAllListsHashMap();
         ArrayList<Exercises> selectedWorkout = allLists.get(workout);
 
         //Singleton singleton = Singleton.getInstance();

@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class Singleton {
 
-    private HashMap<String, ArrayList<Exercises>> allLists = new HashMap<>();
+    private HashMap<String, ArrayList<Exercises>> allListsHashMap = new HashMap<>();
     private Exercises selectedExercise;
     private static Singleton singleton;
 
@@ -14,12 +14,12 @@ public class Singleton {
 
     }
 
-    public HashMap<String, ArrayList<Exercises>> getAllLists() {
-        return allLists;
+    public HashMap<String, ArrayList<Exercises>> getAllListsHashMap() {
+        return allListsHashMap;
     }
 
-    public void setAllLists(HashMap<String, ArrayList<Exercises>> allLists) {
-        this.allLists = allLists;
+    public void setAllListsHashMap(HashMap<String, ArrayList<Exercises>> allListsHashMap) {
+        this.allListsHashMap = allListsHashMap;
     }
 
     public Exercises getSelectedExercise() {

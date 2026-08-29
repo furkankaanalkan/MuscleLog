@@ -10,6 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import android.view.View;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        ViewCompat.setOnApplyWindowInsetsListener(binding.recTextView, (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.recyclerViewMain, (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -37,19 +39,44 @@ public class MainActivity extends AppCompatActivity {
         Exercises deadlift = new Exercises("Deadlift", "Back", R.drawable.deadlift);
         Exercises dumbbell_curl = new Exercises("Dumbbell Curl", "Biceps", R.drawable.dumbbellcurl);
         Exercises chest_supported_dumbbell_row = new Exercises("Chest Supported Dumbbell Row", "Back", R.drawable.chestsupporteddumbbellrow);
-        Exercises hummer_Curl = new Exercises("Hummer Curl", "Biceps", R.drawable.hummercurl);
+        Exercises hummer_Curl = new Exercises("Hammer Curl", "Biceps", R.drawable.hummercurl);
         Exercises lat_pull_down = new Exercises("Lat Pull Down", "Back", R.drawable.latpulldown);
         Exercises face_pull = new Exercises("Face Pull", "Back", R.drawable.facepull);
 
         ArrayList<Exercises> pull_day = new ArrayList<>();
-        pull_day.addAll(List.of(deadlift,dumbbell_curl,chest_supported_dumbbell_row,hummer_Curl,
-                lat_pull_down,face_pull));
+        pull_day.addAll(List.of(deadlift,dumbbell_curl,chest_supported_dumbbell_row,hummer_Curl, lat_pull_down,face_pull));
+
+        Exercises benchPress = new Exercises("Bench Press", "Chest", R.drawable.benchpress);
+        Exercises inclineDumbbellPress = new Exercises("Incline Dumbbell Press", "Chest", R.drawable.inclinedumbbellpress);
+        Exercises machineChestPress = new Exercises("Machine Chest Press", "Chest", R.drawable.machinechestpress);
+        Exercises overHeadPress = new Exercises("Overhead Press", "Shoulders", R.drawable.overheadpress);
+        Exercises lateralRaise = new Exercises("Lateral Raise", "Shoulders", R.drawable.lateralraise);
+        Exercises tricepsPushDown = new Exercises("Triceps Pushdown", "Triceps", R.drawable.tricepspushdown);
+        Exercises dumbbellSkullCrusher = new Exercises("Dumbbell Skull Crusher", "Triceps", R.drawable.dumbbellskullcrusher);
+
+        ArrayList<Exercises> push_day = new ArrayList<>();
+        push_day.addAll(List.of(benchPress,inclineDumbbellPress,machineChestPress,overHeadPress,lateralRaise,tricepsPushDown,dumbbellSkullCrusher));
 
         HashMap<String, ArrayList<Exercises>> types = new HashMap<>();
         types.put("Pull Day",pull_day);
+        types.put("Push Day",push_day);
 
         Singleton singleton = Singleton.getInstance();
-        singleton.setAllLists(types);
+        singleton.setAllListsHashMap(types);
+
+        ArrayList<String> typesKeys = new ArrayList<>();
+
+        //Lambda ile boyle yazılıyor
+        //types.keySet().forEach(key -> typesKeys.add(key));
+
+        for (String key : types.keySet()){
+            typesKeys.add(key);
+        }
+
+
+        binding.recyclerViewMain.setLayoutManager(new LinearLayoutManager(this));
+        ExerciseTypesAdapter exerciseTypesAdapter = new ExerciseTypesAdapter(typesKeys);
+        binding.recyclerViewMain.setAdapter(exerciseTypesAdapter);
 
     }
 
