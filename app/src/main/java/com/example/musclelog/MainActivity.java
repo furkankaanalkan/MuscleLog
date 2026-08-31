@@ -84,12 +84,4 @@ public class MainActivity extends AppCompatActivity {
         binding.recyclerViewMain.setAdapter(exerciseTypesAdapter);
 
     }
-
-    public void button1(View view){
-        Intent intent = new Intent(MainActivity.this, ExerciseActivity.class);
-        intent.putExtra("selectedWorkout", "Pull Day");
-        startActivity(intent);
-
-    }
-
 }

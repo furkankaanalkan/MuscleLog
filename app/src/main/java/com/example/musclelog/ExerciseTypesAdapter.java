@@ -36,7 +36,7 @@ public class ExerciseTypesAdapter extends RecyclerView.Adapter<ExerciseTypesAdap
     public void onBindViewHolder(ExerciseTypesAdapter.ExerciseTypesHolder holder, int position) {
 
         String name = typeStringName.get(position);
-        holder.binding.explainTitle.setText(name);
+        holder.binding.layoutRow.setText(name);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             //@Override

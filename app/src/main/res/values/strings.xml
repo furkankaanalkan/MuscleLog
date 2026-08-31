@@ -3,4 +3,5 @@
     <string name="actMainTitle">Welcome To MuscleLog</string>
     <string name="explainText">aciklama</string>
     <string name="expalinTitle">baslik</string>
+    <string name="GridText">Exercise Name </string>
 </resources>

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.musclelog.databinding.GridBlockBinding;
 import com.example.musclelog.databinding.RecyclerRowBinding;
 
 import java.util.ArrayList;
@@ -28,15 +29,18 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
     @NonNull
     @Override
     public MusclelogHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        RecyclerRowBinding recyclerRowBinding = RecyclerRowBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        return new MusclelogHolder(recyclerRowBinding);
+        GridBlockBinding gridBlockBinding = GridBlockBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new MusclelogHolder(gridBlockBinding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MusclelogAdapter.MusclelogHolder holder, int position) {
 
         String name = selectedWorkout.get(position).name;
-        holder.binding.explainTitle.setText(name);
+        holder.binding.gridBlockText.setText(name);
+
+        int image = selectedWorkout.get(position).images;
+        holder.binding.gridBlockImage.setImageResource(image);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,9 +72,9 @@ public class MusclelogAdapter extends RecyclerView.Adapter<MusclelogAdapter.Musc
 
     public class MusclelogHolder extends RecyclerView.ViewHolder {
 
-        RecyclerRowBinding binding;
+        GridBlockBinding binding;
 
-        public MusclelogHolder(RecyclerRowBinding binding) {
+        public MusclelogHolder(GridBlockBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.musclelog.databinding.ActivityExerciseBinding;
@@ -40,7 +41,7 @@ public class ExerciseActivity extends AppCompatActivity {
         ArrayList<Exercises> selectedworkout = singleton.getExerciseList();
 
 
-        binding.recyclerViewExercises.setLayoutManager(new LinearLayoutManager(this));
+        binding.recyclerViewExercises.setLayoutManager(new GridLayoutManager(this,2));
         MusclelogAdapter musclelogAdapter = new MusclelogAdapter(selectedworkout);
         binding.recyclerViewExercises.setAdapter(musclelogAdapter);
 
