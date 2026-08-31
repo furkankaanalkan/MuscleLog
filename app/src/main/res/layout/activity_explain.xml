@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#F8F9FA"
+    android:background="?android:attr/colorBackground"
     tools:context=".ExplainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,12 +35,12 @@
 
         <TextView
             android:id="@+id/explainTitle"
+            android:textColor="?attr/colorOnBackground"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginHorizontal="20dp"
             android:fontFamily="sans-serif-black"
-            android:textColor="#1F2937"
             android:textSize="28sp"
             android:textAlignment="center"
             tools:text="@string/explainTitle"
@@ -50,13 +50,13 @@
 
         <TextView
             android:id="@+id/explainText"
+            android:textColor="?attr/colorOnSurfaceVariant"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="50dp"
             android:layout_marginHorizontal="20dp"
             android:lineSpacingExtra="6dp"
-            android:textColor="#4B5563"
-            android:textSize="16sp"
+            android:textSize="24sp"
             android:textAlignment="center"
             tools:text="@string/explainText"
             app:layout_constraintEnd_toEndOf="parent"

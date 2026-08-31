@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deadlift">Chest</string>
-    <string name="dumbbell_curl">Chest</string>
-    <string name="chest_supported_dumbbell_row">Chest</string>
-    <string name="hummer_Curl">Chest</string>
-    <string name="lat_pull_down">Chest</string>
-    <string name="face_pull">Chest</string>
-    <string name="inclineDumbbellPress">Chest</string>
-    <string name="machineChestPress">Chest</string>
-    <string name="benchPress">Chest</string>
-    <string name="overHeadPress">Chest</string>
-    <string name="lateralRaise">Chest</string>
-    <string name="tricepsPushDown">Chest</string>
-    <string name="dumbbellSkullCrusher">Chest</string>
+    <!-- Chest, Back, Shoulders & Arms -->
+    <string name="deadlift">Stand with feet hip-width apart, grip the barbell, keep your back straight, and lift the weight by extending your hips and knees until you are standing fully upright.</string>
+    <string name="dumbbell_curl">Stand up straight holding a dumbbell in each hand with palms facing forward. Keep your elbows close to your torso and curl the weights up to shoulder level, then slowly lower them back down.</string>
+    <string name="chest_supported_dumbbell_row">Lie face down on an incline bench with your chest fully supported. Hold a dumbbell in each hand with your arms hanging straight down, then pull the weights up by driving your elbows towards the ceiling and squeezing your shoulder blades together.</string>
+    <string name="hummer_Curl">Stand straight with a dumbbell in each hand, palms facing each other. Keep your upper arms stationary and curl the weights up towards your shoulders, then lower them under strict control.</string>
+    <string name="lat_pull_down">Sit at the cable machine, grab the wide bar with an overhand grip, and pull it down towards your upper chest while keeping your back straight and chest up, focusing on squeezing your lats.</string>
+    <string name="face_pull">Attach a rope to a high pulley. Grab the rope with both hands and pull it directly towards your face, flaring your elbows outward and squeezing your rear delts at the peak of the movement.</string>
+    <string name="inclineDumbbellPress">Lie back on an incline bench holding two dumbbells at chest level. Press the weights straight up toward the ceiling until your arms are fully extended, then slowly lower them back to the starting position.</string>
+    <string name="machineChestPress">Sit on the machine with your back flat against the pad. Grab the handles and push them straight forward until your arms are fully extended, pausing briefly before returning to the start.</string>
+    <string name="benchPress">Lie flat on a bench and grip the barbell slightly wider than shoulder-width. Lower the bar slowly to your mid-chest, then press it powerfully back up until your arms are completely straight.</string>
+    <string name="overHeadPress">Stand or sit with a barbell or dumbbells at shoulder height. Press the weight straight up overhead until your elbows are fully locked out, then carefully lower it back to your shoulders.</string>
+    <string name="lateralRaise">Stand tall with dumbbells at your sides. Keeping a slight bend in your elbows, raise the weights out to your sides until your arms are exactly parallel to the floor, then lower them slowly.</string>
+    <string name="tricepsPushDown">Stand in front of a cable machine with a rope or straight bar attachment. Keep your elbows tucked strictly at your sides and push the attachment down until your arms are fully extended.</string>
+    <string name="dumbbellSkullCrusher">Lie on a flat bench holding dumbbells straight up over your chest. Keeping your upper arms perfectly still, bend your elbows to lower the weights towards the sides of your head, then extend back up.</string>
+
+    <!-- Legs & Core -->
+    <string name="squat">Stand with your feet shoulder-width apart. Brace your core and lower your body by pushing your hips back and bending your knees as if sitting in a chair, then push through your heels to return to a standing position.</string>
+    <string name="legPress">Sit in the machine with your feet placed shoulder-width apart on the sled. Lower the weight by bending your knees toward your chest, then press the sled back up without fully locking your knees at the top.</string>
+    <string name="romanianDeadlift">Stand holding a barbell or dumbbells in front of your thighs. Keeping your legs mostly straight with a slight knee bend, push your hips back to lower the weight down your legs until you feel a deep stretch in your hamstrings, then squeeze your glutes to stand back up.</string>
+    <string name="legExtension">Sit on the machine with your back against the pad and your shins tucked under the roller. Extend your legs forward until they are completely straight, hold for a second at the top, and lower the weight slowly.</string>
+    <string name="legCurl">Lie face down or sit on the machine with the padded lever firmly behind your ankles. Curl the weight by bending your knees and bringing your heels as close to your glutes as possible, then release slowly.</string>
+    <string name="calfRaise">Stand on the edge of a step or platform with your heels hanging off. Push through the balls of your feet to raise your heels as high as possible, then lower them slowly below the level of the step to get a full stretch.</string>
+
+    <!-- Additional Back, Biceps & Triceps -->
+    <string name="pullUp">Grip the pull-up bar with your hands slightly wider than shoulder-width. Engage your core and pull your body up until your chin clears the bar, then lower yourself down with control to a full dead hang.</string>
+    <string name="barbellRow">Bend your knees slightly and hinge at the hips so your torso is almost parallel to the floor. Grab the barbell and pull it directly into your lower rib cage, squeezing your back muscles, then lower it back down.</string>
+    <string name="barbellCurl">Stand up straight holding a barbell with an underhand grip. Keep your elbows pinned strictly to your sides and curl the bar up toward your chest, squeezing your biceps hard before lowering it slowly.</string>
+    <string name="tricepsExtension">Hold a dumbbell or cable rope with both hands behind your head, elbows pointing up. Keeping your upper arms stationary, extend your elbows to press the weight straight up toward the ceiling.</string>
+    <string name="concentrationCurl">Sit on a bench with your legs spread apart. Rest your elbow on the inside of your thigh, hold a dumbbell, and curl it upward towards your shoulder, focusing entirely on isolating the bicep muscle.</string>
+    <string name="cableKickback">Bend forward at the hips with your back straight. Pin your upper arm against your side, hold the cable attachment, and extend your arm straight back until your tricep is fully contracted and locked out.</string>
+    <string name="crunch">Lie on your back with your knees bent and feet flat on the floor. Place your hands lightly behind your head, engage your core, and lift your shoulder blades off the floor to crunch your abs, then lower back down slowly.</string>
+    <string name="plank">Rest on your forearms and toes, keeping your body in a completely straight line from your head to your heels. Brace your core tightly and hold this position without letting your hips sag or rise up.</string>
 </resources>

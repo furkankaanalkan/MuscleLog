@@ -1,11 +1,13 @@
 package com.example.musclelog;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -39,8 +41,7 @@ public class ExerciseTypesAdapter extends RecyclerView.Adapter<ExerciseTypesAdap
         holder.binding.layoutRow.setText(name);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
-            //@Override
-
+            @Override
             public void onClick(View v) {
                 int adapterPosition = holder.getAdapterPosition();
 
@@ -56,6 +57,25 @@ public class ExerciseTypesAdapter extends RecyclerView.Adapter<ExerciseTypesAdap
 
             }
         });
+
+        Context context = holder.itemView.getContext();
+
+        if (name.equalsIgnoreCase("Pull Day") || name.equalsIgnoreCase("Push Day") || name.equalsIgnoreCase("Leg Day")){
+            holder.binding.getRoot().setCardBackgroundColor(ContextCompat.getColor(context, R.color.pastel_lilac));
+        }
+        else if (name.equalsIgnoreCase("Upper Body Day") || name.equalsIgnoreCase("Lower Body Day")) {
+            holder.binding.getRoot().setCardBackgroundColor(ContextCompat.getColor(context, R.color.pastel_mint));
+        }
+        else if (name.equalsIgnoreCase("Full Body Day")) {
+            holder.binding.getRoot().setCardBackgroundColor(ContextCompat.getColor(context, R.color.pastel_peach));
+        }
+        else if (name.equalsIgnoreCase("Arm Day") || name.equalsIgnoreCase("Arnold Chest Back Day") || name.equalsIgnoreCase("Arnold Shoulders Arms Day")) {
+            holder.binding.getRoot().setCardBackgroundColor(ContextCompat.getColor(context, R.color.pastel_blue));
+        }
+        else {
+
+            holder.binding.getRoot().setCardBackgroundColor(ContextCompat.getColor(context, R.color.white));
+        }
 
     }
 
