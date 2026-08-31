@@ -32,7 +32,7 @@ public class ExplainActivity extends AppCompatActivity {
 
         Exercises exerciseType = Singleton.getInstance().getSelectedexercise();
 
-        binding.explainTitle.setText(exerciseType.description);
+        binding.explainTitle.setText(exerciseType.name);
         binding.explainText.setText(exerciseType.description);
         binding.explainImage.setImageResource(exerciseType.images);
     }

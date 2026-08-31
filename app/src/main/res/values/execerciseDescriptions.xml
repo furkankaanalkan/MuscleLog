@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deadlift">Chest</string>
+    <string name="dumbbell_curl">Chest</string>
+    <string name="chest_supported_dumbbell_row">Chest</string>
+    <string name="hummer_Curl">Chest</string>
+    <string name="lat_pull_down">Chest</string>
+    <string name="face_pull">Chest</string>
+    <string name="inclineDumbbellPress">Chest</string>
+    <string name="machineChestPress">Chest</string>
+    <string name="benchPress">Chest</string>
+    <string name="overHeadPress">Chest</string>
+    <string name="lateralRaise">Chest</string>
+    <string name="tricepsPushDown">Chest</string>
+    <string name="dumbbellSkullCrusher">Chest</string>
+</resources>

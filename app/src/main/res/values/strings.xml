@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MuscleLog</string>
-    <string name="actMainTitle">Welcome To MuscleLog</string>
+    <string name="actMainTitle">Choose your plan </string>
     <string name="explainText">aciklama</string>
-    <string name="expalinTitle">baslik</string>
+    <string name="explainTitle">baslik</string>
     <string name="GridText">Exercise Name </string>
 </resources>

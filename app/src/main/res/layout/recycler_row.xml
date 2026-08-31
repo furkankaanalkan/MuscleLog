@@ -22,19 +22,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textAlignment="center"
-            android:textColor="#212121"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.05"
+            android:textColor="#1F2937"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAllCaps="true"/>
 
-        <!--
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_menu_forward"
-            android:contentDescription="İleri"
-            app:tint="#888888" />
-        -->
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
